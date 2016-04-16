@@ -1,0 +1,32 @@
+services:
+    pimterest.api.storer.twitter:
+        class: Pimterest\AppBundle\Twitter\TwitterStorer
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '%twitter.tag%'
+            - '%twitter.oauth_access_token%'
+            - '%twitter.oauth_access_token_secret%'
+            - '%twitter.consumer_key%'
+            - '%twitter.consumer_secret%'
+
+    pimterest.api.reader.twitter:
+        class: Pimterest\AppBundle\Twitter\TwitterReader
+        arguments:
+            - '%twitter.tag%'
+            - '%twitter.oauth_access_token%'
+            - '%twitter.oauth_access_token_secret%'
+            - '%twitter.consumer_key%'
+            - '%twitter.consumer_secret%'
+
+    pimterest.reader.instagram:
+        class: Pimterest\AppBundle\Instagram\InstagramReader
+        arguments:
+            - '%instagram.tag%'
+            - '%instagram.api_key%'
+            - '%instagram.api_secret%'
+            - '%instagram.api_callback%'
+
+    pimterest.repository.contribution:
+        class: Pimterest\AppBundle\Repository\ContributionRepository
+        factory: ["@doctrine.orm.entity_manager", getRepository]
+        arguments: ['AppBundle\Entity\Contribution']

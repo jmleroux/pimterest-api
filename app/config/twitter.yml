@@ -1,0 +1,6 @@
+parameters:
+    twitter.tag: 'AkeneoAroundTheWorld'
+    twitter.oauth_access_token       : 'footoken'
+    twitter.oauth_access_token_secret: 'footoken'
+    twitter.consumer_key             : 'fookey'
+    twitter.consumer_secret          : 'foosecret'

@@ -1,0 +1,10 @@
+Pimterest\AppBundle\Entity\Tweet:
+    type: entity
+    table: tweet
+    id:
+        id:
+            type: string
+            id: true
+    fields:
+        content:
+            type: text

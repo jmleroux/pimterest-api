@@ -1,0 +1,5 @@
+parameters:
+    instagram.tag: 'AkeneoAroundTheWorld'
+    instagram.api_key: 'footoken'
+    instagram.api_secret: 'footoken'
+    instagram.api_callback: 'http://foo.local/'

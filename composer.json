@@ -1,0 +1,56 @@
+{
+    "name": "grena/pimterest-API",
+    "license": "MIT",
+    "type": "project",
+    "description": "Akeneo Around The World API",
+    "autoload": {
+        "psr-4": { "": "src/" },
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
+    },
+    "require": {
+        "php": ">=5.5.9",
+        "symfony/symfony": "~3.0",
+        "doctrine/orm": "@stable",
+        "doctrine/doctrine-bundle": "@stable",
+        "doctrine/doctrine-cache-bundle": "@stable",
+        "symfony/monolog-bundle": "@stable",
+        "sensio/distribution-bundle": "@stable",
+        "sensio/framework-extra-bundle": "@stable",
+        "incenteev/composer-parameter-handler": "@stable",
+        "j7mbo/twitter-api-php": "dev-master",
+        "cosenary/instagram": "dev-master",
+        "knplabs/knp-paginator-bundle": "@stable"
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "@stable"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "post-update-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ]
+    },
+    "config": {
+        "platform": {
+            "php": "5.5.9"
+        },
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-bin-dir": "bin",
+        "symfony-var-dir": "var",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        }
+    }
+}

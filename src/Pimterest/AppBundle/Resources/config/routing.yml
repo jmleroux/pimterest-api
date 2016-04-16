@@ -1,0 +1,40 @@
+home_index:
+    path: /
+    defaults: { _controller: AppBundle:Home:index }
+
+map_index:
+    path: /map
+    defaults: { _controller: AppBundle:Map:index }
+
+gallery_index:
+    path: /gallery
+    defaults: { _controller: AppBundle:Gallery:index }
+
+locations_index:
+    path: /rest/locations
+    defaults: { _controller: AppBundle:Rest/Locations:list, _format: json }
+    options:
+        expose: true
+
+contributions_index:
+    path: /rest/contributions
+    defaults: { _controller: AppBundle:Rest/Contributions:list, _format: json }
+
+admin_index:
+    path: /admin
+    defaults: { _controller: AppBundle:Admin:index }
+
+admin_edit:
+    path: /admin/edit/{id}
+    defaults: { _controller: AppBundle:Admin:edit, id: null }
+
+admin_delete:
+    path: /admin/delete/{id}
+    defaults: { _controller: AppBundle:Admin:delete, id: null }
+
+upload_rest_upload:
+    path: /rest/upload
+    defaults: { _controller: AppBundle:Rest/Upload:upload, _format: json }
+    options:
+        expose: true
+
