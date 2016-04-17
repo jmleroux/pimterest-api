@@ -11,9 +11,10 @@
 !/var/sessions
 /var/sessions/*
 !var/sessions/.gitkeep
+!var/SymfonyRequirements.php
 /vendor/
-
 /web/bundles/
-/web/components/
-/app/bootstrap.php.cache
+
+/bin/*
+!/bin/console
 /composer.lock
