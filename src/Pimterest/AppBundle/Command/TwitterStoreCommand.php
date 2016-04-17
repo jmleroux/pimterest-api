@@ -2,14 +2,16 @@
 
 namespace Pimterest\AppBundle\Command;
 
-use Pimterest\AppBundle\Entity\Contribution;
-use Pimterest\AppBundle\Repository\ContributionRepository;
 use Pimterest\AppBundle\Twitter\TwitterReader;
-use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Store raw tweets in database.
+ * This command should be run in a cron to regularly strore new tweets.
+ * @author JM Leroux <jean-marie.leroux@akeneo.com>
+ */
 class TwitterStoreCommand extends ContainerAwareCommand
 {
     protected function configure()

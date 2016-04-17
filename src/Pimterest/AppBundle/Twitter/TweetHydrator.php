@@ -2,44 +2,12 @@
 
 namespace Pimterest\AppBundle\Twitter;
 
+use Pimterest\AppBundle\Entity\Contribution;
 use TwitterAPIExchange;
 
-class TwitterReader
+class TweetHydrator
 {
-    protected $settings;
-
-    protected $tag;
-
-    public function __construct() {
-    }
-
-    public function retrieve()
-    {
-        $url           = 'https://api.twitter.com/1.1/search/tweets.json';
-        $getfield      = sprintf('?q=#%s', $this->tag);
-        $requestMethod = 'GET';
-
-        $twitter = new TwitterAPIExchange($this->settings);
-
-        $response = $twitter->setGetfield($getfield)
-            ->buildOauth($url, $requestMethod)
-            ->performRequest();
-
-        $data = json_decode($response);
-
-        $formatted = [];
-
-        foreach ($data->statuses as $postData) {
-            $parsed = $this->extractPost($postData);
-            if (count($parsed) > 0) {
-                $formatted[] = $parsed;
-            }
-        }
-
-        return $formatted;
-    }
-
-    protected function extractPost($data)
+    protected function hydrate(array $data, Contribution $contribution)
     {
         if (isset($data->retweeted_status)) {
             return null;
